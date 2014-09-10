@@ -1,0 +1,31 @@
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+*_flymake.*
+
+/eshell/history
+/eshell/lastdir
+
+/.cask/
+/elpa/
+
+# reftex
+*.rel
+
+# AUCTeX
+/auto/
+
+# misc temp files
+/var/
+/recentf
