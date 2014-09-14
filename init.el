@@ -63,11 +63,9 @@
 (use-package magit
   :bind ("C-x g" . magit-status)
   :idle (progn
-                (use-package magit-svn
-                  :diminish magit-svn-mode)
-                (use-package magit-gh-pulls)
-                (add-hook 'magit-mode-hook 'turn-on-magit-svn)
-                (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)))
+          (use-package magit-svn
+            :diminish magit-svn-mode)
+          (add-hook 'magit-mode-hook 'turn-on-magit-svn)))
 
 (use-package git-gutter
   ;; show diff hunks in gutter + stage/unstage from buffer
@@ -148,22 +146,24 @@
         (setenv "PATH" (concat expanded-path ":" (getenv "PATH")))))
 
 
-(when (display-graphic-p)               ; GUI settings
-  (cd "~")                              ; OS X apps launch from /
-  (mapc 'add-to-executable-path                 ; and do not inherit the user's shell environment
+(when (display-graphic-p)
+  ;; GUI settings
+  (add-hook 'after-init-hook 'server-start)
+  ;; OS X apps launch from / and don't inherit the user's shell environment
+  (cd "~")                        
+  (mapc 'add-to-executable-path
         (list
          "/opt/texlive/2014/bin/x86_64-darwin"
-         "/opt/homebrew/bin"))
-  (add-hook 'after-init-hook 'server-start))
+         "/opt/homebrew/bin")))
 
 
-(when (not (display-graphic-p))                 ; terminal settings
-  (menu-bar-mode -1)
-  ; (load-theme 'wombat)                        ; unnecessary it seems
-)
+(when (not (display-graphic-p))
+  ;; terminal settings
+  (menu-bar-mode -1))
 
 ;; Make all "yes or no" prompts show "y or n" instead
 (fset 'yes-or-no-p 'y-or-n-p)
+
 (delete-selection-mode)
 (setq-default indent-tabs-mode nil)
 (bind-key "s-/" 'comment-line)
