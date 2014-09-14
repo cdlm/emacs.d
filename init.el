@@ -49,6 +49,7 @@
   :bind ("C-=" . er/expand-region))
 
 (use-package yasnippet
+  :diminish yas-minor-mode
   :idle (progn
           (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
           (yas-global-mode)))
@@ -62,6 +63,7 @@
 
 (use-package magit
   :bind ("C-x g" . magit-status)
+  :diminish magit-auto-revert-mode
   :idle (progn
           (use-package magit-svn
             :diminish magit-svn-mode)
@@ -77,6 +79,10 @@
              ("C-x C-g C-p" . git-gutter:previous-hunk)
              ("C-x C-g C-s" . git-gutter:stage-hunk)
              ("C-x C-g C-r" . git-gutter:revert-hunk))))
+
+(use-package flycheck
+  :diminish flycheck-mode
+  :idle (global-flycheck-mode))
 
 (use-package ido
   :config (progn
@@ -108,10 +114,12 @@
 
 (use-package ethan-wspace) ;; intelligent showing / autocleaning of whitespace
 
+(use-package paren
+  :idle (show-paren-mode))
+
 (use-package highlight-parentheses
-  :diminish highlight-parentheses-mode
-  :config (show-paren-mode)
-  :commands highlight-parentheses-mode)
+  :commands highlight-parentheses-mode
+  :diminish highlight-parentheses-mode)
 
 ;; (use-package smartparens :diminish smartparens-mode)
 (use-package autopair
@@ -132,13 +140,30 @@
   :mode ("\\.\\(pier\\|pillar\\)\\'" . pillar-mode))
 
 (use-package markdown-mode
-  :mode ("\\.\\(md\\|markdown\\)\\'" . markdown-mode)
+  :mode "\\.\\(md\\|markdown\\)\\'"
   :config (progn
             (use-package pandoc-mode
               :config (add-hook 'markdown-mode-hook 'turn-on-pandoc))))
 
 (use-package rbenv
   :config (global-rbenv-mode))
+
+(use-package feature-mode
+  ;; cucumber feature files
+  :mode "\\.feature\\'")
+
+(use-package lisp-mode
+  :config (dolist (hook '(lisp-mode-hook
+                          lisp-interaction-mode-hook
+                          emacs-lisp-mode-hook))
+            (add-hook hook 'highlight-parentheses-mode)))
+
+(use-package haskell-mode
+  :commands haskell-mode
+  :mode "\\.l?hs\\'"
+  :config (use-package hs-lint))
+
+
 
 (defun add-to-executable-path (path)
   (let ((expanded-path (expand-file-name path)))
