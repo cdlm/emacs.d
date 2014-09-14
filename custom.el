@@ -13,6 +13,7 @@
  '(default-frame-alist (quote ((height . 50) (width . 100))))
  '(drag-stuff-global-mode t)
  '(electric-indent-mode t)
+ '(flycheck-indication-mode (quote right-fringe))
  '(flycheck-temp-prefix ".flycheck")
  '(global-paren-face-mode t)
  '(indent-tabs-mode nil)
@@ -51,6 +52,9 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :family "Ubuntu Mono"))))
  '(cursor ((t (:background "#df4"))))
+ '(flycheck-fringe-error ((t (:inherit error :foreground "#dc322f" :inverse-video nil))))
+ '(flycheck-fringe-info ((t (:inherit success :foreground "#2aa198" :inverse-video nil))))
+ '(flycheck-fringe-warning ((t (:inherit warning :foreground "#b58900" :inverse-video nil))))
  '(fringe ((t (:background "#0a2832" :foreground "#154a55"))))
  '(mode-line ((t (:background "#e9e2cb" :inverse-video t :box (:line-width 1 :color "#52676f") :weight normal))))
  '(ns-working-text-face ((t (:inherit cursor))))
