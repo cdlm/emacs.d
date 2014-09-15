@@ -145,6 +145,13 @@
             (use-package pandoc-mode
               :config (add-hook 'markdown-mode-hook 'turn-on-pandoc))))
 
+(use-package enh-ruby-mode
+  :config (progn
+            (add-to-list 'auto-mode-alist
+                         '("\\.\\(gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|thor\\)\\'" . enh-ruby-mode))
+            (add-to-list 'auto-mode-alist
+                         '("\\Gemfile\\(\\.lock\\)?\\|\\(Cap\\|Guard\\|[rR]ake\\)file\\'" . enh-ruby-mode))))
+
 (use-package rbenv
   :config (global-rbenv-mode))
 
@@ -175,7 +182,7 @@
   ;; GUI settings
   (add-hook 'after-init-hook 'server-start)
   ;; OS X apps launch from / and don't inherit the user's shell environment
-  (cd "~")                        
+  (cd "~")
   (mapc 'add-to-executable-path
         (list
          "/opt/texlive/2014/bin/x86_64-darwin"
