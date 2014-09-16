@@ -28,6 +28,10 @@
               :config (global-anzu-mode))
             (powerline-default-theme)))
 
+(use-package smooth-scrolling
+  ;; scrolling without jumps
+  :idle)
+
 (use-package evil
   :commands evil-mode
   :config (progn
@@ -171,6 +175,24 @@
   :config (use-package hs-lint))
 
 
+;;;
+;;; interesting packages to try someday
+;;;
+
+(use-package smart-newline
+  ;; newlines and indent at block ends
+  :config (smart-newline-mode))
+
+(use-package smart-indent-rigidly
+  ;; better indent for markdown?
+  :disabled t)
+
+(use-package rust-mode :disabled t)
+(use-package uncrustify :disabled t)
+
+;;;
+;;; utility definitions and adhoc configuration
+;;;
 
 (defun add-to-executable-path (path)
   (let ((expanded-path (expand-file-name path)))
