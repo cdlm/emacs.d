@@ -3,8 +3,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(LaTeX-default-options (quote ("a4paper" "11pt" "twoside")))
+ '(LaTeX-style-list (quote (("article") ("beamer") ("book") ("letter") ("memoir") ("minimal") ("report") ("scrartcl") ("scrbook") ("scrlttr2") ("scrreprt") ("slides"))))
+ '(LaTeX-verbatim-environments (quote ("verbatim" "verbatim*" "lstlisting")))
+ '(TeX-PDF-mode t)
  '(TeX-auto-save t)
+ '(TeX-engine (quote luatex))
  '(TeX-parse-self t)
+ '(TeX-source-correlate-method (quote synctex))
+ '(TeX-source-correlate-mode t)
+ '(TeX-source-correlate-start-server t)
+ '(TeX-view-program-list (quote (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline
+-b -g %n %o %b"))))
+ '(TeX-view-program-selection (quote ((output-pdf "Skim") (output-html "xdg-open"))))
  '(auto-save-list-file-prefix "~/.emacs.d/var/autosaves/")
  '(backup-directory-alist (quote ((".*" . "~/.emacs.d/var/backups"))))
  '(blink-cursor-interval 0.4)
@@ -15,6 +26,7 @@
  '(electric-indent-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flycheck-temp-prefix ".flycheck")
+ '(font-latex-fontify-sectioning (quote color))
  '(global-paren-face-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -54,9 +66,13 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :family "Ubuntu Mono"))))
  '(cursor ((t (:background "#df4"))))
+ '(fixed-pitch ((t (:family "Ubuntu Mono"))))
  '(flycheck-fringe-error ((t (:inherit error :foreground "#dc322f" :inverse-video nil))))
  '(flycheck-fringe-info ((t (:inherit success :foreground "#2aa198" :inverse-video nil))))
  '(flycheck-fringe-warning ((t (:inherit warning :foreground "#b58900" :inverse-video nil))))
+ '(font-latex-sectioning-0-face ((t (:inherit font-latex-sectioning-1-face :height 1.1))))
+ '(font-latex-sectioning-5-face ((t (:weight bold))))
+ '(font-latex-slide-title-face ((t (:inherit font-lock-type-face :weight bold :height 1.2))))
  '(fringe ((t (:background "#0a2832" :foreground "#154a55"))))
  '(markdown-header-delimiter-face ((t (:inherit font-lock-function-name-face :weight normal))) t)
  '(mode-line ((t (:background "#e9e2cb" :inverse-video t :box (:line-width 1 :color "#52676f") :weight normal))))
@@ -64,4 +80,5 @@
  '(region ((t (:background "#154a55" :inverse-video nil))))
  '(show-paren-match ((t (:foreground "#df4" :inverse-video nil :weight extra-bold :background nil))))
  '(show-paren-mismatch ((t (:inherit show-paren-match :foreground "#c61b6e"))))
- '(sp-show-pair-match-face ((t (:inherit show-paren-match))) t))
+ '(sp-show-pair-match-face ((t (:inherit show-paren-match))) t)
+ '(tex-verbatim ((t nil)) t))

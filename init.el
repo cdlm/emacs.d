@@ -174,6 +174,8 @@
   :mode "\\.l?hs\\'"
   :config (use-package hs-lint))
 
+(use-package perl-mode
+  :mode "\\.?latexmkrc\\'")
 
 ;;;
 ;;; interesting packages to try someday
