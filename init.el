@@ -65,6 +65,13 @@
           (add-to-list 'smart-tab-disabled-major-modes 'help-mode)
           (add-to-list 'smart-tab-disabled-major-modes 'Custom-mode)))
 
+(use-package dired-x
+  :commands dired-omit-mode
+  :init (add-hook 'dired-mode-hook 'dired-omit-mode)
+  :config (setq dired-omit-extensions
+                (append dired-omit-extensions
+                        '("aux" "blg" "fdb_latexmk" "fls" "lof" "log" "lol" "lot" "toc"))))
+
 (use-package magit
   :bind ("C-x g" . magit-status)
   :diminish magit-auto-revert-mode
