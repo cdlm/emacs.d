@@ -187,7 +187,9 @@
   ;; better indent for markdown?
   :disabled t)
 
-(use-package rust-mode :disabled t)
+(use-package rust-mode
+  :mode "\\.rs\\'")
+
 (use-package uncrustify :disabled t)
 
 ;;;

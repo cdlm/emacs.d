@@ -83,6 +83,7 @@
 (depends-on "smooth-scrolling")
 (depends-on "ssh-config-mode")
 (depends-on "textmate")
+(depends-on "toml-mode")
 (depends-on "tuareg")
 (depends-on "tup-mode")
 (depends-on "uncrustify-mode")
