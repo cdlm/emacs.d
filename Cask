@@ -3,6 +3,7 @@
 (source melpa)
 
 (depends-on "anzu")
+(depends-on "apache-mode")
 (depends-on "auctex")
 (depends-on "auctex-latexmk")
 (depends-on "autopair")

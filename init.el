@@ -140,6 +140,13 @@
 (use-package browse-url
   :bind ("s-<mouse-1>" . browse-url-at-mouse))
 
+(use-package apache-mode
+  :mode (("\\.htaccess\\'" . apache-mode)
+         ("httpd\\.conf\\'" . apache-mode)
+         ("vhost\\.conf\\'" . apache-mode)
+         ("srm\\.conf\\'" . apache-mode)
+         ("access\\.conf\\'" . apache-mode)
+         ("sites-\\(available\\|enabled\\)/" . apache-mode)))
 
 (use-package tex-site ;; auctex
   :idle
