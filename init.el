@@ -140,6 +140,15 @@
 (use-package browse-url
   :bind ("s-<mouse-1>" . browse-url-at-mouse))
 
+(use-package mmm-auto
+  :config (progn
+            (setq mmm-global-mode 'maybe)
+            (mmm-add-classes
+             '((eruby :submode ruby-mode
+                      ;; :face mmm-declaration-submode-face
+                      :front "<%[=]?" :back "%>")))
+            (mmm-add-mode-ext-class 'sgml-mode "\\.rhtml$" 'eruby)))
+
 (use-package apache-mode
   :mode (("\\.htaccess\\'" . apache-mode)
          ("httpd\\.conf\\'" . apache-mode)

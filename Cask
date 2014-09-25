@@ -47,6 +47,7 @@
 (depends-on "magit-svn")
 (depends-on "makey")
 (depends-on "markdown-mode")
+(depends-on "mmm-mode")
 (depends-on "nginx-mode")
 (depends-on "ninja-mode")
 (depends-on "nix-mode")
