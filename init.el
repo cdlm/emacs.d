@@ -42,7 +42,7 @@
 
 (use-package drag-stuff
   :diminish drag-stuff-mode
-  :idle (progn
+  :config (progn
           (setq drag-stuff-modifier '(super control))
           (add-to-list 'drag-stuff-except-modes 'org-mode)
           (add-to-list 'drag-stuff-except-modes 'rebase-mode)
@@ -97,17 +97,15 @@
 
 (use-package ido
   :config (progn
-                (use-package flx-ido
-                  :init (progn
-                          (ido-mode 1)
-                          (ido-everywhere)
-                          (flx-ido-mode 1)
-                          (setq ido-enable-flex-matching t)
-                          (setq ido-use-faces t)))
-                (use-package ido-vertical-mode
-                  :init (ido-vertical-mode))
-                (use-package ido-ubiquitous
-                  :init (ido-ubiquitous-mode)))
+            (use-package flx-ido
+              :init (progn
+                      (ido-mode 1)
+                      (ido-everywhere)
+                      (flx-ido-mode 1)
+                      (setq ido-enable-flex-matching t)
+                      (setq ido-use-faces t)))
+            (use-package ido-vertical-mode :init (ido-vertical-mode))
+            (use-package ido-ubiquitous :init (ido-ubiquitous-mode)))
   :init (ido-mode 'buffer))
 
 (use-package smex
@@ -123,7 +121,9 @@
   ;; visible current line
   :config (global-hl-line-mode))
 
-(use-package ethan-wspace) ;; intelligent showing / autocleaning of whitespace
+(use-package ethan-wspace ;; intelligent showing / autocleaning of whitespace
+  :disabled t
+  :diminish ethan-wspace-mode)
 
 (use-package paren
   :idle (show-paren-mode))
@@ -135,7 +135,7 @@
 ;; (use-package smartparens :diminish smartparens-mode)
 (use-package autopair
   :diminish autopair-mode
-  :idle (autopair-mode))
+  :config (autopair-mode))
 
 (use-package browse-url
   :bind ("s-<mouse-1>" . browse-url-at-mouse))
@@ -158,7 +158,7 @@
          ("sites-\\(available\\|enabled\\)/" . apache-mode)))
 
 (use-package tex-site ;; auctex
-  :idle
+  :mode ("\\.\\(tex\\|sty\\|cls\\)\\'" . latex-mode)
   :config (progn
             (use-package auctex-latexmk
               :config (auctex-latexmk-setup))))
@@ -173,11 +173,22 @@
               :config (add-hook 'markdown-mode-hook 'turn-on-pandoc))))
 
 (use-package enh-ruby-mode
+  :mode (("\\.\\(gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|thor\\)\\'" . enh-ruby-mode)
+         ("\\Gemfile\\(\\.lock\\)?\\|\\(Cap\\|Guard\\|[rR]ake\\|Vagrant\\)file\\'" . enh-ruby-mode))
   :config (progn
-            (add-to-list 'auto-mode-alist
-                         '("\\.\\(gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|thor\\)\\'" . enh-ruby-mode))
-            (add-to-list 'auto-mode-alist
-                         '("\\Gemfile\\(\\.lock\\)?\\|\\(Cap\\|Guard\\|[rR]ake\\)file\\'" . enh-ruby-mode))))
+            (use-package robe :diminish robe-mode)
+            (use-package yard-mode :diminish yard-mode)
+            (use-package ruby-block :diminish ruby-block-mode)
+            (use-package ruby-interpolation :diminish ruby-interpolation-mode)
+            (setq robe-highlight-capf-candidates nil)
+            (setq enh-ruby-check-syntax nil)
+            (add-hook 'enh-ruby-mode-hook
+                      (lambda ()
+                        ;; (abbrev-mode -1) ; buggy, used to indent after `end`
+                        (ruby-block-mode)
+                        (ruby-interpolation-mode)
+                        (yard-mode)
+                        (robe-mode)))))
 
 (use-package rbenv
   :config (global-rbenv-mode))
