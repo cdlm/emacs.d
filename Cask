@@ -2,6 +2,8 @@
 (source marmalade)
 (source melpa)
 
+(depends-on "ansible")
+(depends-on "ansible-doc")
 (depends-on "anzu")
 (depends-on "apache-mode")
 (depends-on "auctex")
