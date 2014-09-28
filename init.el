@@ -270,18 +270,48 @@
 (delete-selection-mode)
 (setq-default indent-tabs-mode nil)
 
+;;;
+;;; own editing functions
+;;;
+
+(defun region-or-line-beginning ()
+  (if (use-region-p) (region-beginning) (line-beginning-position)))
+
+(defun region-or-line-end ()
+  (if (use-region-p) (region-end) (line-end-position)))
+
 (defun comment-or-uncomment-region-or-line ()
-  "Comments or uncomments the region or the current line if there's no active region.
+  "Comments or uncomments the region or the current line if
+there's no active region.
+
 http://stackoverflow.com/a/9697222/63112"
   (interactive)
-  (let (beg end)
-    (if (region-active-p)
-        (setq
-         beg (region-beginning)
-         end (region-end))
-      (setq
-       beg (line-beginning-position)
-       end (line-end-position)))
-    (comment-or-uncomment-region beg end)))
+  (comment-or-uncomment-region (region-or-line-beginning)
+                               (region-or-line-end)))
 
 (bind-key "s-/" 'comment-or-uncomment-region-or-line)
+
+(defun shift-region-or-line (distance)
+  "Shift either the active region or the current line by distance.
+Shift right if distance is positive, left if negative."
+  (let ((mark (mark)))
+    (save-excursion
+      (indent-rigidly (region-or-line-beginning)
+                      (region-or-line-end)
+                      distance)
+      (push-mark mark t t)
+      ;; Tell the command loop not to deactivate the mark
+      ;; for transient mark mode
+      (setq deactivate-mark nil))))
+
+(defun shift-right ()
+  (interactive)
+  (shift-region-or-line 1))
+
+(defun shift-left ()
+  (interactive)
+  (shift-region-or-line -1))
+
+(bind-keys
+ ("s-[" . shift-left)
+ ("s-]" . shift-right))
