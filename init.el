@@ -58,6 +58,10 @@
             (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
             (yas-global-mode)))
 
+(use-package auto-complete
+  :config (use-package auto-complete-exuberant-ctags
+            :config (ac-exuberant-ctags-setup)))
+
 (use-package smart-tab
   :diminish smart-tab-mode
   :idle (progn
@@ -109,6 +113,8 @@
   :init (ido-mode 'buffer))
 
 (use-package smex
+  :config (or (boundp 'smex-cache)
+              (smex-initialize))
   ;; M-x interface with colors and completion
   :bind ("M-x" . smex))
 
@@ -160,6 +166,7 @@
 (use-package tex-site ;; auctex
   :mode ("\\.\\(tex\\|sty\\|cls\\)\\'" . latex-mode)
   :config (progn
+            (use-package auto-complete-auctex)
             (use-package auctex-latexmk
               :config (auctex-latexmk-setup))))
 
