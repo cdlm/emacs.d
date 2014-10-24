@@ -43,10 +43,10 @@
 (use-package drag-stuff
   :diminish drag-stuff-mode
   :config (progn
-          (setq drag-stuff-modifier '(super control))
-          (add-to-list 'drag-stuff-except-modes 'org-mode)
-          (add-to-list 'drag-stuff-except-modes 'rebase-mode)
-          (drag-stuff-global-mode)))
+            (setq drag-stuff-modifier '(super control))
+            (add-to-list 'drag-stuff-except-modes 'org-mode)
+            (add-to-list 'drag-stuff-except-modes 'rebase-mode)
+            (drag-stuff-global-mode)))
 
 (use-package expand-region
   ;; select around cursor, C-- C-= to contract
@@ -54,9 +54,9 @@
 
 (use-package yasnippet
   :diminish yas-minor-mode
-  :idle (progn
-          (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-          (yas-global-mode)))
+  :config (progn
+            (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+            (yas-global-mode)))
 
 (use-package smart-tab
   :diminish smart-tab-mode
@@ -126,7 +126,7 @@
   :diminish ethan-wspace-mode)
 
 (use-package paren
-  :idle (show-paren-mode))
+  :config (show-paren-mode))
 
 (use-package highlight-parentheses
   :commands highlight-parentheses-mode
@@ -228,6 +228,7 @@
 
 (use-package yaml-mode
   :mode "\\.yml\\'"
+  :diminish ansible-doc
   :config (progn
             (use-package ansible)
             (use-package ansible-doc)

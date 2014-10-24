@@ -4,7 +4,20 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(LaTeX-default-options (quote ("a4paper" "11pt" "twoside")))
- '(LaTeX-style-list (quote (("article") ("beamer") ("book") ("letter") ("memoir") ("minimal") ("report") ("scrartcl") ("scrbook") ("scrlttr2") ("scrreprt") ("slides"))))
+ '(LaTeX-style-list
+   (quote
+    (("article")
+     ("beamer")
+     ("book")
+     ("letter")
+     ("memoir")
+     ("minimal")
+     ("report")
+     ("scrartcl")
+     ("scrbook")
+     ("scrlttr2")
+     ("scrreprt")
+     ("slides"))))
  '(LaTeX-verbatim-environments (quote ("verbatim" "verbatim*" "lstlisting")))
  '(TeX-PDF-mode t)
  '(TeX-auto-save t)
@@ -13,14 +26,18 @@
  '(TeX-source-correlate-method (quote synctex))
  '(TeX-source-correlate-mode t)
  '(TeX-source-correlate-start-server t)
- '(TeX-view-program-list (quote (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline
+ '(TeX-view-program-list
+   (quote
+    (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline
 -b -g %n %o %b"))))
  '(TeX-view-program-selection (quote ((output-pdf "Skim") (output-html "xdg-open"))))
  '(auto-save-list-file-prefix "~/.emacs.d/var/autosaves/")
  '(backup-directory-alist (quote ((".*" . "~/.emacs.d/var/backups"))))
  '(blink-cursor-interval 0.4)
  '(color-theme-sanityinc-solarized-rgb-is-srgb t)
- '(custom-safe-themes (quote ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(custom-safe-themes
+   (quote
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(default-frame-alist (quote ((height . 50) (width . 100))))
  '(drag-stuff-global-mode t)
  '(electric-indent-mode nil)
@@ -28,14 +45,24 @@
  '(flycheck-temp-prefix ".flycheck")
  '(font-latex-fontify-sectioning (quote color))
  '(global-paren-face-mode t)
+ '(ido-cannot-complete-command (quote ido-completion-help))
+ '(ido-create-new-buffer (quote always))
+ '(ido-vertical-define-keys (quote C-n-C-p-up-down-left-right))
  '(indent-tabs-mode nil)
  '(inf-ruby-default-implementation "pry")
  '(inhibit-startup-screen t)
+ '(iswitchb-mode nil)
  '(markdown-indent-on-enter nil)
  '(menu-bar-mode t)
  '(ns-alternate-modifier (quote none))
  '(ns-right-command-modifier (quote meta))
- '(package-archives (quote (("marmalade" . "http://marmalade-repo.org/packages/") ("melpa" . "http://melpa.milkbox.net/packages/") ("gnu" . "http://elpa.gnu.org/packages/"))))
+ '(org-hide-leading-stars t)
+ '(org-support-shift-select t)
+ '(package-archives
+   (quote
+    (("marmalade" . "http://marmalade-repo.org/packages/")
+     ("melpa" . "http://melpa.milkbox.net/packages/")
+     ("gnu" . "http://elpa.gnu.org/packages/"))))
  '(powerline-buffer-size-suffix nil)
  '(powerline-default-separator nil)
  '(rbenv-modeline-function (quote rbenv--modeline-plain))
@@ -49,7 +76,6 @@
  '(scroll-bar-mode nil)
  '(show-paren-style (quote parenthesis))
  '(show-smartparens-global-mode nil)
- '(show-trailing-whitespace t)
  '(size-indication-mode t)
  '(smartparens-global-mode t)
  '(smooth-scroll-margin 7)
@@ -59,10 +85,19 @@
  '(tab-always-indent nil)
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
- '(whitespace-display-mappings (quote ((space-mark 160 [183]) (newline-mark 13 [172]) (tab-mark 9 [8594 9]))))
+ '(whitespace-display-mappings
+   (quote
+    ((space-mark 160
+                 [183])
+     (newline-mark 13
+                   [172])
+     (tab-mark 9
+               [8594 9]))))
  '(whitespace-space (quote default))
  '(writeroom-disable-fringe nil)
- '(writeroom-global-effects (quote (writeroom-toggle-fullscreen writeroom-toggle-alpha writeroom-toggle-menu-bar-lines writeroom-toggle-tool-bar-lines writeroom-toggle-vertical-scroll-bars)))
+ '(writeroom-global-effects
+   (quote
+    (writeroom-toggle-fullscreen writeroom-toggle-alpha writeroom-toggle-menu-bar-lines writeroom-toggle-tool-bar-lines writeroom-toggle-vertical-scroll-bars)))
  '(writeroom-width 90))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
