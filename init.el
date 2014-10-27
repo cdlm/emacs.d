@@ -282,6 +282,8 @@
 ;;; own editing functions
 ;;;
 
+(unbind-key "C-x .") ;; who cares about set-fill-prefix
+
 (defun region-or-line-beginning ()
   (if (use-region-p) (region-beginning) (line-beginning-position)))
 
