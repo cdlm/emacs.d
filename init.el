@@ -259,6 +259,9 @@
                         (ansible)
                         (ansible-doc-mode)))))
 
+(use-package ledger-mode
+  :mode "\\.ledger\\'")
+
 (use-package uncrustify :disabled t)
 
 ;;;
