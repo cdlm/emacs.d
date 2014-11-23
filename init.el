@@ -264,6 +264,13 @@
 
 (use-package uncrustify :disabled t)
 
+(use-package autoinsert
+  :config (progn
+            (add-hook 'find-file-hook 'auto-insert)
+            (define-auto-insert
+              '("Gemfile\\'" . "Rubygem / Bundler dependencies")
+              "Gemfile")))
+
 ;;;
 ;;; utility definitions and adhoc configuration
 ;;;
