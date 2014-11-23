@@ -1,4 +1,5 @@
 (source gnu)
+(source marmalade)
 (source melpa)
 
 (depends-on "ansible")
@@ -38,6 +39,7 @@
 (depends-on "github-clone")
 (depends-on "gitignore-mode")
 (depends-on "haml-mode")
+(depends-on "haskell-mode")
 (depends-on "highlight-parentheses")
 (depends-on "ido-ubiquitous")
 (depends-on "ido-vertical-mode")

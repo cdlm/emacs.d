@@ -259,6 +259,8 @@
                         (ansible)
                         (ansible-doc-mode)))))
 
+(use-package haskell-mode)
+
 (use-package ledger-mode
   :mode "\\.ledger\\'")
 
