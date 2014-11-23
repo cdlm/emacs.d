@@ -179,9 +179,9 @@
             (use-package pandoc-mode
               :config (add-hook 'markdown-mode-hook 'turn-on-pandoc))))
 
-(use-package enh-ruby-mode
-  :mode (("\\.\\(gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|thor\\)\\'" . enh-ruby-mode)
-         ("\\Gemfile\\(\\.lock\\)?\\|\\(Cap\\|Guard\\|[rR]ake\\|Vagrant\\)file\\'" . enh-ruby-mode))
+(use-package ruby-mode
+  :mode (("\\.\\(gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|thor\\)\\'" . ruby-mode)
+         ("\\Gemfile\\(\\.lock\\)?\\|\\(Cap\\|Guard\\|[rR]ake\\|Vagrant\\)file\\'" . ruby-mode))
   :config (progn
             (use-package robe :diminish robe-mode)
             (use-package yard-mode :diminish yard-mode)
@@ -189,9 +189,9 @@
             (use-package ruby-interpolation :diminish ruby-interpolation-mode)
             (setq robe-highlight-capf-candidates nil)
             (setq enh-ruby-check-syntax nil)
-            (add-hook 'enh-ruby-mode-hook
+            (add-hook 'ruby-mode-hook
                       (lambda ()
-                        ;; (abbrev-mode -1) ; buggy, used to indent after `end`
+                        (abbrev-mode -1) ; buggy with enh-ruby-mode, used to indent after `end`
                         (ruby-block-mode)
                         (ruby-interpolation-mode)
                         (yard-mode)

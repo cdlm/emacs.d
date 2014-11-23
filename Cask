@@ -17,7 +17,6 @@
 (depends-on "dired+")
 (depends-on "drag-stuff")
 (depends-on "ecukes")
-(depends-on "enh-ruby-mode")
 (depends-on "ethan-wspace")
 (depends-on "evil")
 (depends-on "evil-leader")
