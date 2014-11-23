@@ -99,7 +99,15 @@
 
 (use-package flycheck
   :diminish flycheck-mode
-  :idle (global-flycheck-mode))
+  :idle (progn
+          (use-package flycheck-ledger)
+          (use-package flycheck-cask
+            :config (add-hook 'flycheck-mode-hook 'flycheck-cask-setup))
+          (use-package flycheck-haskell
+            :config (add-hook 'flycheck-mode-hook 'flycheck-haskell-setup))
+          (use-package flycheck-rust
+            :config (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+          (global-flycheck-mode)))
 
 (use-package ido
   :config (progn
