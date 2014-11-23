@@ -111,16 +111,10 @@
 
 (use-package ido
   :config (progn
-            (use-package flx-ido
-              :init (progn
-                      (ido-mode 1)
-                      (ido-everywhere)
-                      (flx-ido-mode 1)
-                      (setq ido-enable-flex-matching t)
-                      (setq ido-use-faces t)))
+            (use-package flx-ido)
             (use-package ido-vertical-mode :init (ido-vertical-mode))
             (use-package ido-ubiquitous :init (ido-ubiquitous-mode)))
-  :init (ido-mode 'buffer))
+  :init (ido-mode 'both))
 
 (use-package smex
   :config (or (boundp 'smex-cache)
