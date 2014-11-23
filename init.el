@@ -194,6 +194,7 @@
             (add-hook 'ruby-mode-hook
                       (lambda ()
                         (abbrev-mode -1) ; buggy with enh-ruby-mode, used to indent after `end`
+                        (electric-spacing-mode)
                         (ruby-block-mode)
                         (ruby-interpolation-mode)
                         (yard-mode)
@@ -231,6 +232,9 @@
 (use-package smart-indent-rigidly
   ;; better indent for markdown?
   :disabled t)
+
+(use-package electric
+  :config (electric-indent-mode))
 
 (use-package rust-mode
   :mode "\\.rs\\'")

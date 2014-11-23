@@ -40,7 +40,7 @@
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(default-frame-alist (quote ((height . 50) (width . 100))))
  '(drag-stuff-global-mode t)
- '(electric-indent-mode nil)
+ '(electric-indent-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flycheck-temp-prefix ".flycheck")
  '(font-latex-fontify-sectioning (quote color))
