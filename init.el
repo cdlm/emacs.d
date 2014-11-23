@@ -3,8 +3,10 @@
 
 (require 'cask "/opt/homebrew/opt/cask/cask.el")
 (cask-initialize)
-(require 'pallet)
 (require 'use-package)
+
+(use-package pallet
+  :config (pallet-mode))
 
 (use-package bind-key)
 
