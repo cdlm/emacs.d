@@ -220,6 +220,8 @@
   :mode "\\.l?hs\\'"
   :config (use-package hs-lint))
 
+(use-package geiser)                    ; list/scheme/racket interaction
+
 (use-package perl-mode
   :mode "\\.?latexmkrc\\'")
 

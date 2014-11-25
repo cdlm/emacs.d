@@ -33,6 +33,7 @@
 (depends-on "flycheck-ledger")
 (depends-on "flycheck-rust")
 (depends-on "flyparens")
+(depends-on "geiser")
 (depends-on "git-gutter")
 (depends-on "gitattributes-mode")
 (depends-on "gitconfig-mode")
