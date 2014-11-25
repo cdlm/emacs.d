@@ -269,6 +269,8 @@
               '("Gemfile\\'" . "Rubygem / Bundler dependencies")
               "Gemfile")))
 
+(use-package e2wm)
+
 ;;;
 ;;; utility definitions and adhoc configuration
 ;;;
