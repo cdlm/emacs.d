@@ -179,9 +179,8 @@
 
 (use-package markdown-mode
   :mode "\\.\\(md\\|markdown\\)\\'"
-  :config (progn
-            (use-package pandoc-mode
-              :config (add-hook 'markdown-mode-hook 'turn-on-pandoc))))
+  :config (use-package pandoc-mode
+            :config (add-hook 'markdown-mode-hook 'turn-on-pandoc)))
 
 (use-package ruby-mode
   :mode (("\\.\\(gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|thor\\)\\'" . ruby-mode)
@@ -268,6 +267,9 @@
             (define-auto-insert
               '("Gemfile\\'" . "Rubygem / Bundler dependencies")
               "Gemfile")))
+
+(use-package org-journal
+  :config (bind-key* "C-c C-j" 'org-journal-new-entry))
 
 
 ;;;
