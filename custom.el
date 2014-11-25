@@ -99,6 +99,7 @@
  '(tab-always-indent nil)
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
+ '(view-read-only t)
  '(whitespace-display-mappings
    (quote
     ((space-mark 160
