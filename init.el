@@ -348,4 +348,8 @@ Shift right if distance is positive, left if negative."
 
 (bind-keys
  ("s-[" . shift-left)
- ("s-]" . shift-right))
+ ("s-]" . shift-right)
+ ("S-s-<left>"  . windmove-left)
+ ("S-s-<right>" . windmove-right)
+ ("S-s-<up>"    . windmove-up)
+ ("S-s-<down>"  . windmove-down))
