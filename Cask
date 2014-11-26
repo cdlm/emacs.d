@@ -16,8 +16,6 @@
 (depends-on "color-theme-sanityinc-solarized")
 (depends-on "dired+")
 (depends-on "drag-stuff")
-(depends-on "e2wm")
-(depends-on "e2wm-bookmark")
 (depends-on "ecukes")
 (depends-on "ethan-wspace")
 (depends-on "evil")
