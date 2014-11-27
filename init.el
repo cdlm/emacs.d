@@ -268,8 +268,12 @@
               '("Gemfile\\'" . "Rubygem / Bundler dependencies")
               "Gemfile")))
 
-(use-package org-journal
-  :config (bind-key* "C-c C-j" 'org-journal-new-entry))
+(use-package org
+  :config (progn
+            (use-package org-habit)
+            (use-package org-journal
+              :config (bind-key* "C-c C-j" 'org-journal-new-entry))
+            (bind-key* "C-c C-a" 'org-agenda)))
 
 
 ;;;

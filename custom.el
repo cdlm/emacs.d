@@ -69,13 +69,22 @@
  '(menu-bar-mode t)
  '(ns-alternate-modifier (quote none))
  '(ns-right-command-modifier (quote meta))
+ '(org-agenda-file-regexp "\\`\\([^.].*\\|\\d\\d\\d\\d-\\d\\d-\\d\\d\\'\\)\\.org")
+ '(org-agenda-files (quote ("~/Documents/tasks.org" "~/Documents/journal/")))
+ '(org-habit-completed-glyph 8226)
+ '(org-habit-graph-column 40)
+ '(org-habit-show-all-today t)
  '(org-hide-leading-stars t)
  '(org-journal-date-format "%A, %Y-%m-%d")
  '(org-journal-file-format "%Y-%m-%d.org")
  '(org-journal-time-format "%R  ")
  '(org-log-done (quote time))
+ '(org-modules
+   (quote
+    (org-bibtex org-docview org-habit org-info org-mouse org-man)))
  '(org-support-shift-select t)
  '(org-tags-column -95)
+ '(org-todo-keywords (quote ((sequence "TODO(t)" "|" "DONE(d!)"))))
  '(package-archives
    (quote
     (("marmalade" . "http://marmalade-repo.org/packages/")
