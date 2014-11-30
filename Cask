@@ -31,6 +31,7 @@
 (depends-on "flycheck-cask")
 (depends-on "flycheck-haskell")
 (depends-on "flycheck-ledger")
+(depends-on "flycheck-ocaml")
 (depends-on "flycheck-rust")
 (depends-on "flyparens")
 (depends-on "geiser")
