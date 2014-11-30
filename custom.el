@@ -71,6 +71,8 @@
  '(ns-right-command-modifier (quote meta))
  '(org-agenda-file-regexp "\\`\\([^.].*\\|\\d\\d\\d\\d-\\d\\d-\\d\\d\\'\\)\\.org")
  '(org-agenda-files (quote ("~/Documents/tasks.org" "~/Documents/journal/")))
+ '(org-agenda-include-diary nil)
+ '(org-agenda-restore-windows-after-quit t)
  '(org-habit-completed-glyph 8226)
  '(org-habit-graph-column 40)
  '(org-habit-show-all-today t)

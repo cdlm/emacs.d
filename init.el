@@ -273,7 +273,10 @@
             (use-package org-habit)
             (use-package org-journal
               :config (bind-key* "C-c C-j" 'org-journal-new-entry))
-            (bind-key* "C-c C-a" 'org-agenda)))
+            (bind-key* "C-c C-a" 'org-agenda)
+            (bind-keys :map org-mode-map
+                       ("s-C-<up>" . org-move-subtree-up)
+                       ("s-C-<down>" . org-move-subtree-down))))
 
 
 ;;;
