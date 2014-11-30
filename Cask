@@ -70,8 +70,6 @@
 (depends-on "paren-face")
 (depends-on "pillar")
 (depends-on "pov-mode")
-(depends-on "powerline")
-(depends-on "powerline-evil")
 (depends-on "projectile")
 (depends-on "puppet-mode")
 (depends-on "rbenv")

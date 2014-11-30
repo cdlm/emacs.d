@@ -4,31 +4,52 @@
 (require 'cask "/opt/homebrew/opt/cask/cask.el")
 (cask-initialize)
 (require 'use-package)
+(require 'cl-lib)
 
 (use-package pallet
   :config (pallet-mode))
 
 (use-package bind-key)
 
+(defvar site-lisp-dir "~/.emacs.d/lisp")
+(add-to-list 'load-path site-lisp-dir)
+
+(use-package paren-face
+  ;; dimmer parentheses
+  :config (global-paren-face-mode))
+
 (use-package color-theme-sanityinc-solarized
   :if (display-graphic-p)
   :config (progn
-            (use-package paren-face
-              ;; dimmer parentheses
-              :config (global-paren-face-mode))
-            (load-theme 'sanityinc-solarized-dark)
-            (set-face-background 'cursor "#df4") ; I like it to flash
             (color-theme-sanityinc-solarized--with-colors
              'dark
-             (set-face-foreground 'parenthesis faintest))))
+             (cl-flet ((box (c) `(:box (:line-width 3 :color ,c :style nil)))
+                       (spec (s) (mapcar (lambda (fs) `(,(car fs) ((,class ,@(cdr fs)))))
+                                         s)))
+               (apply 'custom-theme-set-faces
+                      (cons 'sanityinc-solarized-dark
+                            (spec
+                             `((cursor (:background "#df4")) ; I like it to flash
+                               (parenthesis (:foreground ,faintest))
+                               (mode-line (,@(box contrast-background) :foreground ,normal :background ,contrast-background))
+                               (mode-line-inactive (,@(box alt-background) :foreground ,strong :background ,alt-background :inherit (mode-line)))
+                               (mode-line-highlight (:underline (:style line)))
+                               (mode-line-emphasis (:weight bold :inherit t))
+                               (mode-line-buffer-id (,@(box green) :foreground ,base3 :background ,green))
+                               (mode-line-readonly-face (,@(box red) :foreground ,contrast-background :background ,red))
+                               (mode-line-modified-face (,@(box orange) :foreground ,contrast-background :background ,orange))
+                               (mode-line-narrowed-face (,@(box cyan) :foreground ,contrast-background :background ,cyan))
+                               (mode-line-directory-face (:foreground ,background :inherit mode-line-filename-face))
+                               (mode-line-position-face (:foreground ,cyan))
+                               (mode-line-mode-face (:foreground ,alt-background))
+                               (mode-line-minor-mode-face (:foreground ,normal))
+                               ))))))
+            (color-theme-sanityinc-solarized 'dark)))
 
-(use-package powerline
-  ;; colorful modeline
-  :config (progn
-            (use-package anzu ;; number of search matches
-              :diminish anzu-mode
-              :config (global-anzu-mode))
-            (powerline-default-theme)))
+(use-package anzu
+  ;; number of search matches
+  :diminish anzu-mode
+  :config (global-anzu-mode))
 
 (use-package smooth-scrolling
   ;; scrolling without jumps
@@ -282,10 +303,11 @@
                        ("s-C-<up>" . org-move-subtree-up)
                        ("s-C-<down>" . org-move-subtree-down))))
 
-
 ;;;
 ;;; utility definitions and adhoc configuration
 ;;;
+
+(use-package vitamined-mode-line)
 
 (defun add-to-executable-path (path)
   (let ((expanded-path (expand-file-name path)))
