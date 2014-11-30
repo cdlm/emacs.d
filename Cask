@@ -50,6 +50,8 @@
 (depends-on "ledger-mode")
 (depends-on "magit")
 (depends-on "magit-gh-pulls")
+(depends-on "magit-gitflow")
+(depends-on "magit-push-remote")
 (depends-on "magit-svn")
 (depends-on "makey")
 (depends-on "markdown-mode")

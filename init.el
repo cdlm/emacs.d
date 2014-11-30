@@ -82,9 +82,13 @@
   :bind ("C-x g" . magit-status)
   :diminish magit-auto-revert-mode
   :idle (progn
+          (use-package magit-push-remote ; should be integrated in magit
+            :config (magit-push-remote-mode 1))
           (use-package magit-svn
-            :diminish magit-svn-mode)
-          (add-hook 'magit-mode-hook 'turn-on-magit-svn)))
+            :diminish magit-svn-mode
+            :config (add-hook 'magit-mode-hook 'turn-on-magit-svn))
+          (use-package magit-gitflow
+            :config (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))))
 
 (use-package git-gutter
   ;; show diff hunks in gutter + stage/unstage from buffer
