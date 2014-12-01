@@ -66,21 +66,16 @@
 
 
 (setq-default mode-line-format
-              '("%e" mode-line-front-space
+              '("%e"
 
-                ;; line:column position of point in buffer
-                (line-number-mode
-                 ((:propertize "%4l" face mode-line-position-face weight bold)
-                  (column-number-mode
-                   (:propertize ":%3c" face mode-line-position-face))))
-
-                " "
-                ;; narrowing indicator
+                ;; line:column position of point in buffer, narrowing indicator via color
                 (:eval
-                 (cond ((buffer-narrowed-p)
-                        (propertize " ‡ " 'face 'mode-line-narrowed-face))
-                       (t "   ")))
-
+                   `(:propertize
+                     (line-number-mode (" %l" (column-number-mode ":%c") " ")
+                                       ,(if (buffer-narrowed-p) " — " ""))
+                     face ,(if (buffer-narrowed-p)
+                               'mode-line-narrowed-face
+                             'mode-line-position-face)))
 
                 ;; directory and buffer/file name
                 ;; if uniquify, relies on the forward setting
@@ -92,9 +87,6 @@
                   " ")
                  face mode-line-filename-face)
 
-                ;; emacsclient indicator
-                mode-line-client
-
                 ;; read-only or modified status
                 (:eval
                  (cond ((or view-mode buffer-read-only)
@@ -103,13 +95,17 @@
                         (propertize " ⁒ " 'face 'mode-line-modified-face))
                        (t "   ")))
 
+                ;; emacsclient indicator
+                mode-line-client
+
                 ;; mode indicators: vc, recursive edit, major mode, minor modes, process, global
-                (vc-mode vc-mode)
                 " %["
                 (:propertize mode-name face mode-line-mode-face)
                 "%] "
                 (:propertize (:eval (format-mode-line minor-mode-alist))
                              face mode-line-minor-mode-face)
+                (vc-mode vc-mode)
+
                 (:propertize mode-line-process face mode-line-process-face)
                 (global-mode-string global-mode-string)
                 mode-line-end-spaces))

@@ -21,6 +21,7 @@
 (use-package color-theme-sanityinc-solarized
   :if (display-graphic-p)
   :config (progn
+            (color-theme-sanityinc-solarized 'dark)
             (color-theme-sanityinc-solarized--with-colors
              'dark
              (cl-flet ((box (c) `(:box (:line-width 3 :color ,c :style nil)))
@@ -43,8 +44,8 @@
                                (mode-line-position-face (:foreground ,cyan))
                                (mode-line-mode-face (:foreground ,alt-background))
                                (mode-line-minor-mode-face (:foreground ,normal))
-                               ))))))
-            (color-theme-sanityinc-solarized 'dark)))
+                               (mode-line-process-face (:foreground ,violet))
+                               ))))))))
 
 (use-package anzu
   ;; number of search matches
