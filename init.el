@@ -198,7 +198,8 @@
   :config (progn
             (use-package auto-complete-auctex)
             (use-package auctex-latexmk
-              :config (auctex-latexmk-setup))))
+              :config (auctex-latexmk-setup))
+            (add-hook 'LaTeX-mode-hook 'visual-line-mode)))
 
 (use-package pillar
   :mode ("\\.\\(pier\\|pillar\\)\\'" . pillar-mode))

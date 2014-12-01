@@ -69,6 +69,7 @@
  '(inf-ruby-default-implementation "pry")
  '(inhibit-startup-screen t)
  '(iswitchb-mode nil)
+ '(latex-run-command "latexmk")
  '(lisp-lambda-list-keyword-alignment t)
  '(markdown-indent-on-enter nil)
  '(menu-bar-mode t)
@@ -130,6 +131,7 @@
      (tab-mark 9
                [8594 9]))))
  '(whitespace-space (quote default))
+ '(word-wrap t)
  '(writeroom-disable-fringe nil)
  '(writeroom-global-effects
    (quote
@@ -150,9 +152,9 @@
  '(flycheck-fringe-error ((t (:inherit error :foreground "#dc322f" :inverse-video nil))))
  '(flycheck-fringe-info ((t (:inherit success :foreground "#2aa198" :inverse-video nil))))
  '(flycheck-fringe-warning ((t (:inherit warning :foreground "#b58900" :inverse-video nil))))
- '(font-latex-sectioning-0-face ((t (:inherit font-latex-sectioning-1-face :height 1.1))) t)
- '(font-latex-sectioning-5-face ((t (:weight bold))) t)
- '(font-latex-slide-title-face ((t (:inherit font-lock-type-face :weight bold :height 1.2))) t)
+ '(font-latex-sectioning-0-face ((t (:inherit font-latex-sectioning-1-face :height 1.1))))
+ '(font-latex-sectioning-5-face ((t (:weight bold))))
+ '(font-latex-slide-title-face ((t (:inherit font-lock-type-face :weight bold :height 1.2))))
  '(fringe ((t (:background "#0a2832" :foreground "#154a55"))))
  '(markdown-header-delimiter-face ((t (:inherit font-lock-function-name-face :weight normal))) t)
  '(ns-working-text-face ((t (:inherit cursor))))
@@ -176,5 +178,5 @@
  '(show-paren-match ((t (:foreground "#df4" :inverse-video nil :weight extra-bold :background nil))))
  '(show-paren-mismatch ((t (:inherit show-paren-match :foreground "#c61b6e"))))
  '(sp-show-pair-match-face ((t (:inherit show-paren-match))) t)
- '(tex-verbatim ((t nil)) t)
+ '(tex-verbatim ((t nil)))
  '(trailing-whitespace ((t (:background "#422" :underline nil)))))
