@@ -194,7 +194,7 @@
          ("sites-\\(available\\|enabled\\)/" . apache-mode)))
 
 (use-package tex-site ;; auctex
-  :mode ("\\.\\(tex\\|sty\\|cls\\)\\'" . latex-mode)
+  :mode ("\\.\\(tex\\|sty\\|cls\\)\\'" . TeX-latex-mode)
   :config (progn
             (use-package auto-complete-auctex)
             (use-package auctex-latexmk
