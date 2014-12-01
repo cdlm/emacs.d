@@ -74,7 +74,7 @@
  '(menu-bar-mode t)
  '(ns-alternate-modifier (quote none))
  '(ns-right-command-modifier (quote meta))
- '(org-agenda-file-regexp "\\`\\([^.].*\\|\\d\\d\\d\\d-\\d\\d-\\d\\d\\'\\)\\.org")
+ '(org-agenda-file-regexp "\\`\\([^.#].*\\|\\d\\d\\d\\d-\\d\\d-\\d\\d\\)\\.org\\'")
  '(org-agenda-files (quote ("~/Documents/tasks.org" "~/Documents/journal/")))
  '(org-agenda-include-diary nil)
  '(org-agenda-restore-windows-after-quit t)
