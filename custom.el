@@ -53,6 +53,9 @@
  '(geiser-default-implementation (quote racket))
  '(geiser-mode-smart-tab-p t)
  '(global-paren-face-mode t)
+ '(haskell-mode-hook
+   (quote
+    (turn-on-haskell-indent turn-on-haskell-indentation)))
  '(ido-auto-merge-work-directories-length -1)
  '(ido-cannot-complete-command (quote ido-completion-help))
  '(ido-create-new-buffer (quote always))
