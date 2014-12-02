@@ -211,14 +211,13 @@
 
 (use-package ruby-mode
   :mode (("\\.\\(gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|thor\\)\\'" . ruby-mode)
-         ("\\Gemfile\\(\\.lock\\)?\\|\\(Cap\\|Guard\\|[rR]ake\\|Vagrant\\)file\\'" . ruby-mode))
+         ("Gemfile\\(\\.lock\\)?\\|\\(Cap\\|Guard\\|[rR]ake\\|Vagrant\\)file\\'" . ruby-mode))
   :config (progn
             (use-package robe :diminish robe-mode)
             (use-package yard-mode :diminish yard-mode)
             (use-package ruby-block :diminish ruby-block-mode)
             (use-package ruby-interpolation :diminish ruby-interpolation-mode)
             (setq robe-highlight-capf-candidates nil)
-            (setq enh-ruby-check-syntax nil)
             (add-hook 'ruby-mode-hook
                       (lambda ()
                         (abbrev-mode -1) ; buggy with enh-ruby-mode, used to indent after `end`
@@ -236,10 +235,12 @@
   :mode "\\.feature\\'")
 
 (use-package lisp-mode
-  :config (dolist (hook '(lisp-mode-hook
-                          lisp-interaction-mode-hook
-                          emacs-lisp-mode-hook))
-            (add-hook hook 'highlight-parentheses-mode)))
+  :config (progn
+            (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode)) ; why is this not default?
+            (dolist (hook '(lisp-mode-hook
+                            lisp-interaction-mode-hook
+                            emacs-lisp-mode-hook))
+              (add-hook hook 'highlight-parentheses-mode))))
 
 (use-package haskell-mode
   :commands haskell-mode
