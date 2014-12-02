@@ -206,8 +206,12 @@
 
 (use-package markdown-mode
   :mode "\\.\\(md\\|markdown\\)\\'"
-  :config (use-package pandoc-mode
-            :config (add-hook 'markdown-mode-hook 'turn-on-pandoc)))
+  :config (progn
+            (use-package pandoc-mode)
+            (add-hook 'markdown-mode-hook
+                      (lambda ()
+                        (turn-on-pandoc)
+                        (visual-line-mode)))))
 
 (use-package ruby-mode
   :mode (("\\.\\(gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|thor\\)\\'" . ruby-mode)
