@@ -13,6 +13,7 @@ tramp
 *_archive
 
 *_flymake.*
+/_flycheck_*
 
 /eshell/history
 /eshell/lastdir
