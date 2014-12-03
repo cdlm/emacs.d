@@ -18,6 +18,9 @@
   ;; dimmer parentheses
   :config (global-paren-face-mode))
 
+(use-package vitamined-mode-line
+  :config (vitamined/setup))
+
 (use-package color-theme-sanityinc-solarized
   :if (display-graphic-p)
   :config (progn
@@ -32,19 +35,21 @@
                             (spec
                              `((cursor (:background "#df4")) ; I like it to flash
                                (parenthesis (:foreground ,faintest))
+
                                (mode-line (,@(box contrast-background) :foreground ,normal :background ,contrast-background))
                                (mode-line-inactive (,@(box alt-background) :foreground ,strong :background ,alt-background :inherit (mode-line)))
                                (mode-line-highlight (:underline (:style line)))
                                (mode-line-emphasis (:weight bold :inherit t))
                                (mode-line-buffer-id (,@(box green) :foreground ,base3 :background ,green))
-                               (mode-line-readonly-face (,@(box red) :foreground ,contrast-background :background ,red))
-                               (mode-line-modified-face (,@(box orange) :foreground ,contrast-background :background ,orange))
-                               (mode-line-narrowed-face (,@(box cyan) :foreground ,contrast-background :background ,cyan))
-                               (mode-line-directory-face (:foreground ,background :inherit mode-line-filename-face))
-                               (mode-line-position-face (:foreground ,cyan))
-                               (mode-line-mode-face (:foreground ,alt-background))
-                               (mode-line-minor-mode-face (:foreground ,normal))
-                               (mode-line-process-face (:foreground ,violet))
+
+                               (vitamined-mode-line-directory-face (:foreground ,background))
+                               (vitamined-mode-line-readonly-face (,@(box red) :foreground ,contrast-background :background ,red))
+                               (vitamined-mode-line-modified-face (,@(box orange) :foreground ,contrast-background :background ,orange))
+                               (vitamined-mode-line-narrowed-face (,@(box cyan) :foreground ,contrast-background :background ,cyan))
+                               (vitamined-mode-line-position-face (:foreground ,cyan))
+                               (vitamined-mode-line-mode-face (:foreground ,cyan))
+                               (vitamined-mode-line-minor-mode-face (:foreground ,normal))
+                               (vitamined-mode-line-process-face (:foreground ,violet))
                                ))))))))
 
 (use-package anzu
@@ -313,8 +318,6 @@
 ;;;
 ;;; utility definitions and adhoc configuration
 ;;;
-
-(use-package vitamined-mode-line)
 
 (defun add-to-executable-path (path)
   (let ((expanded-path (expand-file-name path)))

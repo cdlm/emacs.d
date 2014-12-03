@@ -2,6 +2,7 @@
 (source marmalade)
 (source melpa)
 
+(depends-on "vitamined-mode-line")
 (depends-on "ansible")
 (depends-on "ansible-doc")
 (depends-on "anzu")
