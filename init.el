@@ -224,10 +224,12 @@
             (add-hook 'LaTeX-mode-hook
                       (lambda ()
                         (visual-line-mode)
+                        (flyspell-mode)
                         (ac-ispell-ac-setup)))))
 
 (use-package pillar
-  :mode ("\\.\\(pier\\|pillar\\)\\'" . pillar-mode))
+  :mode ("\\.\\(pier\\|pillar\\)\\'" . pillar-mode)
+  :config (flyspell-mode))
 
 (use-package markdown-mode
   :mode "\\.\\(md\\|markdown\\)\\'"
@@ -237,6 +239,7 @@
                       (lambda ()
                         (turn-on-pandoc)
                         (visual-line-mode)
+                        (flyspell-mode)
                         (ac-ispell-ac-setup)))))
 
 (use-package lua-mode)
