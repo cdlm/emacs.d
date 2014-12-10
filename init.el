@@ -88,8 +88,19 @@
             (yas-global-mode)))
 
 (use-package auto-complete
-  :config (use-package auto-complete-exuberant-ctags
-            :config (ac-exuberant-ctags-setup)))
+  :config (progn
+            (use-package auto-complete-exuberant-ctags
+              :config (ac-exuberant-ctags-setup))
+            (use-package ac-ispell
+              :config (ac-ispell-setup))
+            (use-package ac-html
+              :defer t
+              :init (progn
+                        (add-hook 'html-mode-hook 'ac-html-enable)
+                        (add-hook 'haml-mode-hook 'ac-haml-enable)))
+            (use-package auto-complete-c-headers)
+            (use-package auto-complete-chunk)
+            (use-package auto-complete-clang)))
 
 (use-package smart-tab
   :diminish smart-tab-mode
@@ -138,6 +149,13 @@
           (use-package flycheck-rust
             :config (add-hook 'flycheck-mode-hook 'flycheck-rust-setup))
           (global-flycheck-mode)))
+
+(use-package flyspell
+  :config (progn
+            (use-package auto-dictionary
+              :config (add-hook 'flyspell-mode-hook 'auto-dictionary-mode))
+            (use-package flyspell-lazy
+              :config (flyspell-lazy-mode))))
 
 (use-package ido
   :config (progn
@@ -203,7 +221,10 @@
             (use-package auto-complete-auctex)
             (use-package auctex-latexmk
               :config (auctex-latexmk-setup))
-            (add-hook 'LaTeX-mode-hook 'visual-line-mode)))
+            (add-hook 'LaTeX-mode-hook
+                      (lambda ()
+                        (visual-line-mode)
+                        (ac-ispell-ac-setup)))))
 
 (use-package pillar
   :mode ("\\.\\(pier\\|pillar\\)\\'" . pillar-mode))
@@ -215,7 +236,10 @@
             (add-hook 'markdown-mode-hook
                       (lambda ()
                         (turn-on-pandoc)
-                        (visual-line-mode)))))
+                        (visual-line-mode)
+                        (ac-ispell-ac-setup)))))
+
+(use-package lua-mode)
 
 (use-package ruby-mode
   :mode (("\\.\\(gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|thor\\)\\'" . ruby-mode)
@@ -233,7 +257,11 @@
                         (ruby-block-mode)
                         (ruby-interpolation-mode)
                         (yard-mode)
-                        (robe-mode)))))
+                        (robe-mode)))
+            (use-package ac-inf-ruby
+              :config (progn
+                        (add-to-list 'ac-modes 'inf-ruby-mode)
+                        (add-hook 'inf-ruby-mode-hook 'ac-inf-ruby-enable)))))
 
 (use-package rbenv
   :config (global-rbenv-mode))
@@ -251,11 +279,14 @@
               (add-hook hook 'highlight-parentheses-mode))))
 
 (use-package haskell-mode
-  :commands haskell-mode
-  :mode "\\.l?hs\\'"
-  :config (use-package hs-lint))
+  :mode "\\.l?hs\\'")
 
-(use-package geiser)                    ; list/scheme/racket interaction
+(use-package geiser                   ; list/scheme/racket interaction
+  :config (use-package ac-geiser
+            :config (progn
+                      (add-hook 'geiser-mode-hook 'ac-geiser-setup)
+                      (add-hook 'geiser-repl-mode-hook 'ac-geiser-setup)
+                      (add-to-list 'ac-modes 'geiser-repl-mode))))
 
 (use-package perl-mode
   :mode "\\.?latexmkrc\\'")
@@ -309,6 +340,8 @@
             (use-package org-habit)
             (use-package org-journal
               :config (bind-key* "C-c C-j" 'org-journal-new-entry))
+            (use-package org-ac
+              :config (org-ac/config-default))
             (bind-key* "C-c C-a" 'org-agenda)
             (bind-keys :map org-mode-map
                        ("s-C-<up>" . org-move-subtree-up)

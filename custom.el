@@ -69,6 +69,7 @@
  '(indent-tabs-mode nil)
  '(inf-ruby-default-implementation "pry")
  '(inhibit-startup-screen t)
+ '(ispell-program-name "aspell")
  '(iswitchb-mode nil)
  '(latex-run-command "latexmk")
  '(ledger-post-amount-alignment-column 51)
