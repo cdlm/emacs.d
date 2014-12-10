@@ -71,6 +71,7 @@
  '(inhibit-startup-screen t)
  '(iswitchb-mode nil)
  '(latex-run-command "latexmk")
+ '(ledger-post-amount-alignment-column 51)
  '(lisp-lambda-list-keyword-alignment t)
  '(markdown-indent-on-enter nil)
  '(menu-bar-mode t)
