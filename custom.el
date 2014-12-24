@@ -31,6 +31,8 @@
     (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline
 -b -g %n %o %b"))))
  '(TeX-view-program-selection (quote ((output-pdf "Skim") (output-html "xdg-open"))))
+ '(ac-auto-show-menu 1.2)
+ '(ac-auto-start 3)
  '(auto-insert-directory "~/.emacs.d/autoinsert/")
  '(auto-insert-query nil)
  '(auto-save-list-file-prefix "~/.emacs.d/var/autosaves/")
