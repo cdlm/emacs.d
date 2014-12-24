@@ -164,7 +164,7 @@
  '(font-latex-sectioning-5-face ((t (:weight bold))))
  '(font-latex-slide-title-face ((t (:inherit font-lock-type-face :weight bold :height 1.2))))
  '(fringe ((t (:background "#0a2832" :foreground "#154a55"))))
- '(markdown-header-delimiter-face ((t (:inherit font-lock-function-name-face :weight normal))) t)
+ '(markdown-header-delimiter-face ((t (:inherit font-lock-function-name-face :weight normal))))
  '(ns-working-text-face ((t (:inherit cursor))))
  '(org-tag ((t (:slant italic :height 0.9))))
  '(outline-1 ((t (:foreground "#cb4b16"))))

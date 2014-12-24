@@ -241,7 +241,7 @@
             (use-package pandoc-mode)
             (add-hook 'markdown-mode-hook
                       (lambda ()
-                        (turn-on-pandoc)
+                        (conditionally-turn-on-pandoc)
                         (visual-line-mode)
                         (flyspell-mode)
                         (ac-ispell-ac-setup)))))
