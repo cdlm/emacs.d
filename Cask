@@ -110,6 +110,7 @@
 (depends-on "tuareg")
 (depends-on "tup-mode")
 (depends-on "uncrustify-mode")
+(depends-on "unfill")
 (depends-on "use-package")
 (depends-on "vitamined-mode-line")
 (depends-on "xterm-title")

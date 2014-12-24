@@ -310,6 +310,8 @@
   ;; better indent for markdown?
   :disabled t)
 
+(use-package unfill)
+
 (use-package electric
   :config (electric-indent-mode))
 
