@@ -112,6 +112,7 @@
 (depends-on "uncrustify-mode")
 (depends-on "unfill")
 (depends-on "use-package")
+(depends-on "utop")
 (depends-on "vitamined-mode-line")
 (depends-on "xterm-title")
 (depends-on "yaml-mode")

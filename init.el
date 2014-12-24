@@ -330,6 +330,9 @@
                         (ansible)
                         (ansible-doc-mode)))))
 
+(use-package tuareg
+  :config (use-package utop))
+
 (use-package haskell-mode)
 
 (use-package ledger-mode
