@@ -45,7 +45,7 @@
                                (mode-line-emphasis (:weight bold :inherit t))
                                (mode-line-buffer-id (,@(box green) :foreground ,base3 :background ,green))
 
-                               (vitamined-mode-line-directory-face (:foreground ,background))
+                               (vitamined-mode-line-directory-face (:foreground ,background :inherit (mode-line-buffer-id)))
                                (vitamined-mode-line-readonly-face (,@(box red) :foreground ,contrast-background :background ,red))
                                (vitamined-mode-line-modified-face (,@(box orange) :foreground ,contrast-background :background ,orange))
                                (vitamined-mode-line-narrowed-face (,@(box cyan) :foreground ,contrast-background :background ,cyan))
