@@ -84,6 +84,10 @@
   ;; select around cursor, C-- C-= to contract
   :bind ("C-=" . er/expand-region))
 
+(use-package comment-dwim-2
+  :bind ("M-;" . comment-dwim-2)
+  :config (setq comment-dwim-2--inline-comment-behavior 'reindent-comment))
+
 (use-package yasnippet
   :diminish yas-minor-mode
   :config (progn
@@ -401,17 +405,6 @@
 
 (defun region-or-line-end ()
   (if (use-region-p) (region-end) (line-end-position)))
-
-(defun comment-or-uncomment-region-or-line ()
-  "Comments or uncomments the region or the current line if
-there's no active region.
-
-http://stackoverflow.com/a/9697222/63112"
-  (interactive)
-  (comment-or-uncomment-region (region-or-line-beginning)
-                               (region-or-line-end)))
-
-(bind-key "s-/" 'comment-or-uncomment-region-or-line)
 
 (defun shift-region-or-line (distance)
   "Shift either the active region or the current line by distance.

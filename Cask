@@ -22,6 +22,7 @@
 (depends-on "auto-indent-mode")
 (depends-on "autopair")
 (depends-on "color-theme-sanityinc-solarized")
+(depends-on "comment-dwim-2")
 (depends-on "dired+")
 (depends-on "drag-stuff")
 (depends-on "ecukes")
