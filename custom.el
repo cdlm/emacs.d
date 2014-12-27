@@ -153,6 +153,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :family "Ubuntu Mono"))))
+ '(Man-overstrike ((t (:inherit font-lock-keyword-face))))
+ '(Man-underline ((t (:inherit font-lock-string-face))))
  '(cursor ((t (:background "#df4"))))
  '(enh-ruby-op-face ((t (:inherit font-lock-keyword-face))) t)
  '(fixed-pitch ((t (:family "Ubuntu Mono"))))
