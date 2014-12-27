@@ -38,6 +38,7 @@
                                (popup-face (:foreground ,faint :background ,contrast-background))
                                (popup-menu-mouse-face (:foreground ,background :inherit (popup-face)))
                                (popup-menu-selection-face (:foreground ,contrast-background :background ,cyan))
+                               (ac-completion-face (:foreground ,faintest))
 
                                (mode-line (,@(box contrast-background) :foreground ,normal :background ,contrast-background))
                                (mode-line-inactive (,@(box alt-background) :foreground ,strong :background ,alt-background :inherit (mode-line)))

@@ -33,6 +33,7 @@
  '(TeX-view-program-selection (quote ((output-pdf "Skim") (output-html "xdg-open"))))
  '(ac-auto-show-menu 1.2)
  '(ac-auto-start 3)
+ '(ac-comphist-file "/Users/damien/.emacs.d/var/ac-comphist.dat")
  '(auto-insert-directory "~/.emacs.d/autoinsert/")
  '(auto-insert-query nil)
  '(auto-save-list-file-prefix "~/.emacs.d/var/autosaves/")
