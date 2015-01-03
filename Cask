@@ -79,6 +79,7 @@
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "pandoc-mode")
+(depends-on "paradox")
 (depends-on "paredit")
 (depends-on "paredit-everywhere")
 (depends-on "paren-face")
