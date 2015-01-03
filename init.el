@@ -1,18 +1,28 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+(defvar site-lisp-dir "~/.emacs.d/lisp"
+  "Local elisp directory")
+
+(defvar private-lisp-dir "~/.emacs/private"
+  "Private elisp directory")
+
 (require 'cask "/opt/homebrew/opt/cask/cask.el")
 (cask-initialize)
 (require 'use-package)
 (require 'cl-lib)
 
+(if (file-directory-p site-lisp-dir)
+    (add-to-list 'load-path site-lisp-dir))
+(if (file-directory-p private-lisp-dir)
+    (progn
+      (add-to-list 'load-path private-lisp-dir)
+      (use-package private-init)))
+
 (use-package pallet
   :config (pallet-mode))
 
 (use-package bind-key)
-
-(defvar site-lisp-dir "~/.emacs.d/lisp")
-(add-to-list 'load-path site-lisp-dir)
 
 (use-package paren-face
   ;; dimmer parentheses
