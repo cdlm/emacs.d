@@ -65,6 +65,9 @@
  '(haskell-mode-hook
    (quote
     (turn-on-haskell-indent turn-on-haskell-indentation)))
+ '(hippie-expand-try-functions-list
+   (quote
+    (yas-hippie-try-expand try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-list try-expand-line try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-lisp-symbol-partially try-complete-lisp-symbol)))
  '(ido-auto-merge-work-directories-length -1)
  '(ido-cannot-complete-command (quote ido-completion-help))
  '(ido-create-new-buffer (quote always))
@@ -82,6 +85,13 @@
  '(iswitchb-mode nil)
  '(latex-run-command "latexmk")
  '(ledger-post-amount-alignment-column 51)
+ '(ledger-post-use-completion-engine :ido)
+ '(ledger-reports
+   (quote
+    (("bal" "ledger -f %(ledger-file) bal")
+     ("reg" "ledger -f %(ledger-file) reg")
+     ("payee" "ledger -f %(ledger-file) reg @%(payee)")
+     ("account" "ledger -f %(ledger-file) reg %(account)"))))
  '(lisp-lambda-list-keyword-alignment t)
  '(markdown-indent-on-enter nil)
  '(menu-bar-mode t)
@@ -113,6 +123,7 @@
     (("marmalade" . "http://marmalade-repo.org/packages/")
      ("melpa" . "http://melpa.milkbox.net/packages/")
      ("gnu" . "http://elpa.gnu.org/packages/"))))
+ '(paradox-github-token t)
  '(powerline-buffer-size-suffix nil)
  '(powerline-default-separator nil)
  '(rbenv-modeline-function (quote rbenv--modeline-plain))
