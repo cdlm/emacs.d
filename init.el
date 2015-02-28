@@ -355,6 +355,7 @@
                         (ansible-doc-mode)))))
 
 (use-package tuareg
+  :mode "\\.mli?\\'"
   :config (use-package utop))
 
 (use-package haskell-mode)
