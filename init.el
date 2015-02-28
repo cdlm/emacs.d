@@ -1,3 +1,12 @@
+;;; init.el -- Emacs startup
+;;;
+;;; Commentary:
+;;;
+;;; Mostly loading packages and setting defaults, not much hacking or
+;;; adhoc behavior defined here.
+;;;
+;;; Code:
+;; (setq debug-on-error t)
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
