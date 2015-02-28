@@ -404,7 +404,8 @@
 
 (delete-selection-mode)
 (setq-default indent-tabs-mode nil)
-
+(add-hook 'text-mode-hook
+          (lambda () (setq require-final-newline t)))
 ;;;
 ;;; own editing functions
 ;;;
@@ -445,3 +446,4 @@ Shift right if distance is positive, left if negative."
  ("S-s-<right>" . windmove-right)
  ("S-s-<up>"    . windmove-up)
  ("S-s-<down>"  . windmove-down))
+
