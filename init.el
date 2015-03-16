@@ -80,9 +80,8 @@
   :diminish anzu-mode
   :config (global-anzu-mode))
 
-(use-package smooth-scrolling
-  ;; scrolling without jumps
-  :idle)
+;; scrolling without jumps
+(use-package smooth-scrolling)
 
 (use-package evil
   :commands evil-mode
@@ -123,7 +122,7 @@
               :config (ac-ispell-setup))
             (use-package ac-html
               :defer t
-              :init (progn
+              :config (progn
                         (add-hook 'html-mode-hook 'ac-html-enable)
                         (add-hook 'haml-mode-hook 'ac-haml-enable)))
             (use-package auto-complete-c-headers)
@@ -132,10 +131,10 @@
 
 (use-package smart-tab
   :diminish smart-tab-mode
-  :idle (progn
-          (global-smart-tab-mode)
-          (add-to-list 'smart-tab-disabled-major-modes 'help-mode)
-          (add-to-list 'smart-tab-disabled-major-modes 'Custom-mode)))
+  :config (progn
+            (global-smart-tab-mode)
+            (add-to-list 'smart-tab-disabled-major-modes 'help-mode)
+            (add-to-list 'smart-tab-disabled-major-modes 'Custom-mode)))
 
 (use-package dired-x
   :commands dired-omit-mode
@@ -159,24 +158,24 @@
 (use-package git-gutter
   ;; show diff hunks in gutter + stage/unstage from buffer
   :diminish git-gutter-mode
-  :idle (global-git-gutter-mode)
   :config (progn
             (bind-keys
              ("C-x C-g C-n" . git-gutter:next-hunk)
              ("C-x C-g C-p" . git-gutter:previous-hunk)
              ("C-x C-g C-s" . git-gutter:stage-hunk)
-             ("C-x C-g C-r" . git-gutter:revert-hunk))))
+             ("C-x C-g C-r" . git-gutter:revert-hunk))
+            (global-git-gutter-mode)))
 
 (use-package flycheck
-  :idle (progn
-          (use-package flycheck-ledger)
-          (use-package flycheck-cask
-            :config (add-hook 'flycheck-mode-hook 'flycheck-cask-setup))
-          (use-package flycheck-haskell
-            :config (add-hook 'flycheck-mode-hook 'flycheck-haskell-setup))
-          (use-package flycheck-rust
-            :config (add-hook 'flycheck-mode-hook 'flycheck-rust-setup))
-          (global-flycheck-mode)))
+  :config (progn
+            (use-package flycheck-ledger)
+            (use-package flycheck-cask
+              :config (add-hook 'flycheck-mode-hook 'flycheck-cask-setup))
+            (use-package flycheck-haskell
+              :config (add-hook 'flycheck-mode-hook 'flycheck-haskell-setup))
+            (use-package flycheck-rust
+              :config (add-hook 'flycheck-mode-hook 'flycheck-rust-setup))
+            (global-flycheck-mode)))
 
 (use-package flyspell
   :config (progn
@@ -188,9 +187,11 @@
 (use-package ido
   :config (progn
             (use-package flx-ido)
-            (use-package ido-vertical-mode :init (ido-vertical-mode))
-            (use-package ido-ubiquitous :init (ido-ubiquitous-mode)))
-  :init (ido-mode 'both))
+            (use-package ido-vertical-mode
+              :config (ido-vertical-mode))
+            (use-package ido-ubiquitous
+              :config (ido-ubiquitous-mode))
+            (ido-mode 'both)))
 
 (use-package smex
   :config (or (boundp 'smex-cache)
