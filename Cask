@@ -110,6 +110,8 @@
 (depends-on "smex")
 (depends-on "smooth-scrolling")
 (depends-on "smyx-theme")
+(depends-on "speed-type")
+(depends-on "sr-speedbar")
 (depends-on "ssh-config-mode")
 (depends-on "textmate")
 (depends-on "toml-mode")
