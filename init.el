@@ -150,10 +150,9 @@
             (use-package magit-push-remote ; should be integrated in magit
               :config (add-hook 'magit-mode-hook 'magit-push-remote-mode))
             (use-package magit-svn
-              :diminish magit-svn-mode
-              :config (add-hook 'magit-mode-hook 'turn-on-magit-svn))
-            (use-package magit-gitflow
-              :config (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))))
+              :diminish magit-svn-mode)
+            (use-package magit-gitflow)
+            (add-hook 'magit-mode-hook 'magit-load-config-extensions)))
 
 (use-package git-gutter
   ;; show diff hunks in gutter + stage/unstage from buffer
