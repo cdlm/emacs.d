@@ -80,6 +80,11 @@
   :diminish anzu-mode
   :config (global-anzu-mode))
 
+(use-package swiper
+  :bind ("C-s" . swiper))
+
+(use-package visual-regexp-steroids)
+
 ;; scrolling without jumps
 (use-package smooth-scrolling)
 
