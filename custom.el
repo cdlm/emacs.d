@@ -32,8 +32,7 @@
  '(TeX-source-correlate-start-server t)
  '(TeX-view-program-list
    (quote
-    (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline
--b -g %n %o %b"))))
+    (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b"))))
  '(TeX-view-program-selection (quote ((output-pdf "Skim") (output-html "xdg-open"))))
  '(ac-auto-show-menu 1.2)
  '(ac-auto-start 3)
