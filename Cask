@@ -107,6 +107,7 @@
 (depends-on "smart-newline")
 (depends-on "smart-tab")
 (depends-on "smartparens")
+(depends-on "smartrep")
 (depends-on "smex")
 (depends-on "smooth-scrolling")
 (depends-on "smyx-theme")

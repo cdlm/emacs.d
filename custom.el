@@ -143,6 +143,7 @@
  '(solarized-use-variable-pitch nil)
  '(sp-show-pair-from-inside t)
  '(tab-always-indent nil)
+ '(text-scale-mode-step 1.1)
  '(tool-bar-mode nil)
  '(trash-directory "~/.Trash/emacs")
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
