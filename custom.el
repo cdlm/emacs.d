@@ -63,7 +63,7 @@
  '(global-paren-face-mode t)
  '(haskell-mode-hook
    (quote
-    (turn-on-haskell-indent turn-on-haskell-indentation)))
+    (turn-on-haskell-indent turn-on-haskell-indentation)) t)
  '(hippie-expand-try-functions-list
    (quote
     (yas-hippie-try-expand try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-list try-expand-line try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-lisp-symbol-partially try-complete-lisp-symbol)))

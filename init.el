@@ -81,6 +81,7 @@
   :config (global-anzu-mode))
 
 (use-package swiper
+  ;; interactive search
   :bind ("C-s" . swiper))
 
 (use-package visual-regexp-steroids)
