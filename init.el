@@ -327,6 +327,11 @@
 (use-package perl-mode
   :mode "\\.?latexmkrc\\'")
 
+(use-package zoom-frm
+  :bind (("C-x C--" . zoom-in/out)
+         ("C-x C-+" . zoom-in/out)
+         ("C-x C-=" . zoom-in/out)
+         ("C-x C-0" . zoom-in/out)))
 ;;;
 ;;; interesting packages to try someday
 ;;;

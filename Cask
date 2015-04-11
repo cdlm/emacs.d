@@ -130,3 +130,4 @@
 (depends-on "yard-mode")
 (depends-on "yasnippet")
 (depends-on "zen-mode")
+(depends-on "zoom-frm")
