@@ -152,6 +152,7 @@
 (use-package magit
   :bind ("C-x g" . magit-status)
   :diminish magit-auto-revert-mode
+  :init (setq magit-last-seen-setup-instructions "1.4.0")
   :config (progn
             (use-package magit-push-remote ; should be integrated in magit
               :config (add-hook 'magit-mode-hook 'magit-push-remote-mode))
