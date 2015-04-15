@@ -462,11 +462,17 @@ Shift right if distance is positive, left if negative."
   (interactive)
   (shift-region-or-line -1))
 
+(defun kill-active-region (beg end &optional region)
+  (interactive (list (mark) (point) 'region))
+  (when (region-active-p)
+      (call-interactively #'kill-region)))
+
 (bind-keys
  ("s-[" . shift-left)
  ("s-]" . shift-right)
  ("S-s-<left>"  . windmove-left)
  ("S-s-<right>" . windmove-right)
  ("S-s-<up>"    . windmove-up)
- ("S-s-<down>"  . windmove-down))
+ ("S-s-<down>"  . windmove-down)
+ ("C-w" . kill-active-region))
 
