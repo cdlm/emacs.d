@@ -258,6 +258,7 @@
               :config (auctex-latexmk-setup))
             (add-hook 'LaTeX-mode-hook
                       (lambda ()
+                        (reftex-mode)
                         (visual-line-mode)
                         (flyspell-mode)
                         (ac-ispell-ac-setup)))))
