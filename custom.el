@@ -133,6 +133,8 @@
  '(recentf-save-file "~/.emacs.d/var/recentf")
  '(ruby-block-highlight-face (quote paren-face-match))
  '(ruby-block-highlight-toggle (quote overlay))
+ '(ruby-insert-encoding-magic-comment nil)
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(scroll-bar-mode nil)
  '(show-paren-style (quote parenthesis))
  '(show-smartparens-global-mode nil)
