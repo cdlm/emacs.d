@@ -2,6 +2,9 @@
 (source marmalade)
 (source melpa)
 
+(depends-on "gforth"
+            :git "https://github.com/smtlaissezfaire/gforth.el"
+            :files ("gforth.el"))
 (depends-on "ac-geiser")
 (depends-on "ac-html")
 (depends-on "ac-inf-ruby")
