@@ -357,10 +357,11 @@
 
 (use-package yaml-mode
   :mode "\\.yml\\'"
-  :diminish ansible-doc
   :config (progn
             (use-package ansible)
-            (use-package ansible-doc)
+            (use-package ansible-doc
+              ;; :diminish ansible-doc
+              )
             (add-hook 'yaml-mode-hook
                       (lambda ()
                         (bind-key "C-m" 'newline-and-indent yaml-mode-map)
