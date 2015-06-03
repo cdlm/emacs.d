@@ -292,9 +292,9 @@
             (add-hook 'ruby-mode-hook
                       (lambda ()
                         (abbrev-mode -1) ; buggy with enh-ruby-mode, used to indent after `end`
-                        (electric-spacing-mode)
                         (ruby-block-mode)
                         (ruby-interpolation-mode)
+                        (ruby-electric-mode)
                         (yard-mode)
                         (robe-mode)))
             (use-package ac-inf-ruby
