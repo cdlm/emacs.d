@@ -3,7 +3,7 @@
 (source melpa)
 
 (depends-on "gforth"
-            :git "https://github.com/smtlaissezfaire/gforth.el"
+            :git "http://git.savannah.gnu.org/cgit/gforth.git"
             :files ("gforth.el"))
 (depends-on "ac-geiser")
 (depends-on "ac-html")
